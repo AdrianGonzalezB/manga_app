@@ -18,7 +18,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Configuration"),
+          title: const Text("Configuration"),
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -26,6 +26,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const Divider(
+                  thickness: 1,
+                ),
+                // Text for Theme related options
+                const Text(
+                  "Theme",
+                  style: TextStyle(color: Colors.blue, fontSize: 14),
+                ),
+                // Darkmode / LightMode switch with preferences
                 SwitchListTile(
                     value: Preferences.isDarkMode,
                     title: const Text('Dark Mode'),

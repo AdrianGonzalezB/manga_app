@@ -28,9 +28,9 @@ class _HomeScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final uiProvider = Provider.of<UiProvider>(context);
-    // cridam es provider per canviar de pantalla
+    // Call UiProvider to Switch between screens
     final currentIndex = uiProvider.selectedMenuOpt;
-
+    // Switch between screens
     switch (currentIndex) {
       case 0:
         return Text("Home");

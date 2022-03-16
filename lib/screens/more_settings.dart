@@ -7,7 +7,7 @@ class MoreSettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: CustomScrollView(
         slivers: [
           _CustomAppBar(),
@@ -22,30 +22,32 @@ class _CustomAppBar extends StatelessWidget {
   const _CustomAppBar({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    // Exactament igual que la AppBaer però amb bon comportament davant scroll
+    // Appbar with scroll
     return SliverAppBar(
-      backgroundColor: Colors.indigo,
+      //backgroundColor: Color.fromARGB(255, 41, 41, 43),
       expandedHeight: 200,
       floating: false,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,
-        titlePadding: EdgeInsets.all(0),
+        titlePadding: const EdgeInsets.all(0),
         title: Container(
           width: double.infinity,
           alignment: Alignment.centerLeft,
           color: Colors.black12,
-          padding: EdgeInsets.only(bottom: 50),
-          child: Text(
+          padding: const EdgeInsets.only(bottom: 50),
+          child: const Text(
             "More",
-            style: TextStyle(fontSize: 16),
+            style: TextStyle(
+              fontSize: 12,
+            ),
           ),
         ),
-        background: FadeInImage(
+        /*background: const FadeInImage(
           placeholder: AssetImage('assets/loading.gif'),
           image: AssetImage("assets/fondo.jpg"),
           fit: BoxFit.cover,
-        ),
+        ),*/
       ),
     );
   }
@@ -59,7 +61,7 @@ class _Views extends StatelessWidget {
     return SliverList(
       delegate: SliverChildListDelegate([
         ListTile(
-          title: Text(
+          title: const Text(
             'Configuration',
             textAlign: TextAlign.left,
             style: TextStyle(
@@ -67,10 +69,13 @@ class _Views extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          leading: Icon(Icons.settings),
+          leading: const Icon(Icons.settings),
+          // OnTap go to SettingScreen
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => SettingsScreen()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const SettingsScreen()));
           },
         ),
       ]),
