@@ -31,7 +31,7 @@ class CustomNavigationBar extends StatelessWidget {
           ),
           // Library BottomNavigationBar
           BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark_border),
+            icon: Icon(Icons.collections_bookmark),
             label: 'Library',
             tooltip: 'library',
           ),

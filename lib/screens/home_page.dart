@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Work in Progress"),
       ),
-      body: _HomeScreenBody(),
+      body: const _HomeScreenBody(),
       extendBody: true,
       bottomNavigationBar: CustomNavigationBar(),
     );
@@ -33,7 +33,7 @@ class _HomeScreenBody extends StatelessWidget {
     // Switch between screens
     switch (currentIndex) {
       case 0:
-        return Text("Home");
+        return MangaLibrary();
 
       case 1:
         return Text("Search");

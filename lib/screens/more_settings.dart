@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:read_manga_app/screens/category_screen.dart';
 
 import 'screens.dart';
 
@@ -76,6 +77,21 @@ class _Views extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const SettingsScreen()));
+          },
+        ),
+        ListTile(
+          title: const Text(
+            'Categories',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          leading: const Icon(Icons.label_outline_rounded),
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const CategoryPage()));
           },
         ),
       ]),
