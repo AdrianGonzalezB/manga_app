@@ -30,7 +30,7 @@ class _CategoryState extends State<CategoryPage> {
               title: Text(
                 '${_items[index]}',
                 textAlign: TextAlign.left,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),

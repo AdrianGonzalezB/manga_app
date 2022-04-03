@@ -8,10 +8,14 @@ class AddBottom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton(
+    return FloatingActionButton.extended(
       elevation: 0,
       onPressed: () {},
-      child: const Icon(Icons.add),
+      icon: const Icon(
+        Icons.add,
+        semanticLabel: 'Add',
+      ),
+      label: const Text('Add'),
     );
   }
 }
