@@ -1,3 +1,5 @@
+import 'package:provider/provider.dart';
+import 'package:read_manga_app/shared_preferences/preferences.dart';
 import 'package:read_manga_app/widgets/add_bottom.dart';
 
 import '../widgets/widgets.dart';
@@ -10,7 +12,7 @@ class CategoryPage extends StatefulWidget {
 }
 
 class _CategoryState extends State<CategoryPage> {
-  final List<int> _items = List<int>.generate(50, (int index) => index);
+  final List<String> _items = Preferences.category;
   @override
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
@@ -20,7 +22,7 @@ class _CategoryState extends State<CategoryPage> {
       appBar: AppBar(
         title: const Text("Edit Categories"),
       ),
-      floatingActionButton: AddBottom(items: _items),
+      floatingActionButton: AddBottom(),
       body: ReorderableListView(
         padding: const EdgeInsets.symmetric(horizontal: 0),
         children: <Widget>[
@@ -28,7 +30,7 @@ class _CategoryState extends State<CategoryPage> {
             ListTile(
               key: ValueKey(index),
               title: Text(
-                '${_items[index]}',
+                _items[index],
                 textAlign: TextAlign.left,
                 style: const TextStyle(
                   fontSize: 16,
@@ -45,7 +47,7 @@ class _CategoryState extends State<CategoryPage> {
             if (oldIndex < newIndex) {
               newIndex -= 1;
             }
-            final int item = _items.removeAt(oldIndex);
+            final String item = _items.removeAt(oldIndex);
             _items.insert(newIndex, item);
           });
         },
