@@ -23,8 +23,8 @@ class Preferences {
     return _prefs.getStringList('category') ?? _categories;
   }
 
-  static set category(List<String> value) {
+  static set setCategory(List<String> value) {
     _categories = [...value];
-    _prefs.setStringList('category', value);
+    _prefs.setStringList('category', [...value]);
   }
 }

@@ -22,6 +22,7 @@ class _AddBottomState extends State<AddBottom> {
     super.dispose();
   }
 
+  var list = Preferences.category;
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton.extended(
@@ -31,7 +32,8 @@ class _AddBottomState extends State<AddBottom> {
         if (category == null || category.isEmpty) return;
 
         setState(() {
-          Preferences.category.add(category);
+          list.add(category);
+          Preferences.setCategory = list;
         });
       },
       icon: const Icon(
