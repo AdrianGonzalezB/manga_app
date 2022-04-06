@@ -27,6 +27,8 @@ class _CategoryState extends State<CategoryPage> {
             Dismissible(
               // Set a UniqueKey to resolve problems on the tree
               key: UniqueKey(),
+              // Only can delete from 1 direction (rigth to left = endToStart)
+              direction: DismissDirection.endToStart,
               background: Container(
                 color: Colors.red,
                 child: const Align(
