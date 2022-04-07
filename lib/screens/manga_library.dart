@@ -12,13 +12,13 @@ class MangaLibrary extends StatefulWidget {
 class _MangaLibraryState extends State<MangaLibrary> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: ListView(
-          children: <Widget>[
-            const SizedBox(height: 10),
-            Row(
+    return ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: Preferences.category.length,
+        itemBuilder: (BuildContext context, int index) => Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                for (int index = 0; index < Preferences.category.length; index += 1)
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: GestureDetector(
@@ -28,13 +28,13 @@ class _MangaLibraryState extends State<MangaLibrary> {
                           fontSize: 16,
                           fontWeight: FontWeight.bold),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      print(Preferences.category[index]);
+                    },
                   ),
                 ),
               ],
-            ),
-          ],
-        ),
-      );
+          ),
+        );
   }
 }
