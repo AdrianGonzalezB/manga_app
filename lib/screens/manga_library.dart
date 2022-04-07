@@ -1,43 +1,40 @@
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
-class MangaLibrary extends StatelessWidget {
+import '../shared_preferences/preferences.dart';
+
+class MangaLibrary extends StatefulWidget {
   MangaLibrary({Key? key}) : super(key: key);
 
   @override
+  State<MangaLibrary> createState() => _MangaLibraryState();
+}
+
+class _MangaLibraryState extends State<MangaLibrary> {
+  @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
-    return GestureDetector(
-      onTap: () {
-        print("taped");
-      },
-      child: Container(
-        margin: const EdgeInsets.all(10.0),
-        padding: const EdgeInsets.all(10.0),
-        height: size.height,
-        child: Column(children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text(
-                'prova',
-                style: TextStyle(
-                  fontSize: 14,
+    return SafeArea(
+        child: ListView(
+          children: <Widget>[
+            const SizedBox(height: 10),
+            Row(
+              children: <Widget>[
+                for (int index = 0; index < Preferences.category.length; index += 1)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: GestureDetector(
+                    child: Text(
+                      Preferences.category[index],
+                      style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    onTap: () {},
+                  ),
                 ),
-              ),
-              Text(
-                'prova2',
-                style: TextStyle(
-                  fontSize: 14,
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              )
-            ],
-          ),
-        ]),
-      ),
-    );
+              ],
+            ),
+          ],
+        ),
+      );
   }
 }

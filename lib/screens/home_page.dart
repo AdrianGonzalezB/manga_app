@@ -33,13 +33,13 @@ class _HomeScreenBody extends StatelessWidget {
     // Switch between screens
     switch (currentIndex) {
       case 0:
-        return MangaLibrary();
+        return Text("Home");
 
       case 1:
         return Text("Search");
 
       case 2:
-        return Text("Library");
+        return MangaLibrary();
 
       default:
         return MoreSettings();
